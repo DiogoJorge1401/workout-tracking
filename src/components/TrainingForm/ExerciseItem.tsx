@@ -13,18 +13,6 @@ function ExerciseItem({ onRemove, onExerciseChange, initialData = null }: Exerci
       id: crypto.randomUUID(),
       nome: '',
       restTimeIntervals: [
-        //   {
-        //   name: 'Aquecimento',
-        //   value: 90
-        // },
-        // {
-        //   name: 'Preparação',
-        //   value: 90
-        // },
-        // {
-        //   name: 'Preparação',
-        //   value: 90
-        // },
         {
           name: 'Série válida',
           value: 90
