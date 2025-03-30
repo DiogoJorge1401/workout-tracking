@@ -15,7 +15,7 @@ function App() {
     WorkoutNavigation
   >('treinos');
   const [selectedTraining, setSelectedTraining] = useState<number | null>(null);
-  const { treinos, notification, addTraining, deleteTraining, clearAllTrainings, importTrainings } = useTrainings();
+  const { treinos, notification, addTraining, deleteTraining, clearAllTrainings, importTrainings, updateTraining } = useTrainings();
 
   const handleSelectTraining = (index: number | null) => {
     setSelectedTraining(index);
@@ -41,6 +41,7 @@ function App() {
               deleteTraining(selectedTraining);
               handleBackToTrainings();
             }}
+            onUpdate={updateTraining}
           />
         ) : (
           <>

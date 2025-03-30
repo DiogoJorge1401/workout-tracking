@@ -58,6 +58,13 @@ export default function useTrainings() {
         showNotification('Dados importados com sucesso!');
     };
 
+    const updateTraining = (updatedTraining: Workout) => {
+        setTreinos((prevTreinos) =>
+            prevTreinos.map((training) => (training.id === updatedTraining.id ? updatedTraining : training))
+        );
+        showNotification('Treino atualizado com sucesso!');
+    }
+
     return {
         treinos,
         notification,
@@ -65,6 +72,7 @@ export default function useTrainings() {
         deleteTraining,
         clearAllTrainings,
         importTrainings,
-        showNotification
+        showNotification,
+        updateTraining
     };
 }
