@@ -8,7 +8,7 @@ export const workout: Workout[] = [
         defaultExecutionTime: TEMPO.SEG_45,
         defaultEnrolacaoDuration: TEMPO.SEG_15,
         stretchDuration: TEMPO.MIN_10,
-        exercices: [
+        exercises: [
             {
                 id: crypto.randomUUID(),
                 nome: "Supino Inclinado",
@@ -185,7 +185,7 @@ export const workout: Workout[] = [
         defaultEnrolacaoDuration: TEMPO.SEG_15,
         warmUpDuration: TEMPO.MIN_5,
         stretchDuration: TEMPO.MIN_10,
-        exercices: [
+        exercises: [
             {
                 id: crypto.randomUUID(),
                 nome: "Agachamento",

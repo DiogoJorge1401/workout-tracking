@@ -14,7 +14,7 @@ export interface Exercise {
 export interface Workout {
     id: string;
     nome: string;
-    exercices: Exercise[];
+    exercises: Exercise[];
     warmUpDuration?: number;
     stretchDuration?: number;
     defaultExecutionTime?: number;
