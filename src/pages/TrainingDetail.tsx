@@ -1,16 +1,17 @@
 import { useMemo, useState } from 'react';
 import { calcularTempoTreino, formatarTempo } from '../utils/time-utils';
 import { Exercise, Workout } from '../interfaces';
-import ExerciseItem from './ExerciseItem';
+import ExerciseItem from '../components/ExerciseItem';
 
 interface TrainingDetailProps {
     training: Workout
     onBack: () => void;
     onDelete: () => void;
     onUpdate: (updatedTraining: Workout) => void;
+    onRecordWorkout?: () => void;  // Propriedade adicional para registrar um treino
 }
 
-function TrainingDetail({ training, onBack, onDelete, onUpdate }: TrainingDetailProps) {
+function TrainingDetail({ training, onBack, onDelete, onUpdate, onRecordWorkout }: TrainingDetailProps) {
     const [expandedExercise, setExpandedExercise] = useState<string | null>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [editedTraining, setEditedTraining] = useState<Workout>({ ...training });
@@ -51,7 +52,7 @@ function TrainingDetail({ training, onBack, onDelete, onUpdate }: TrainingDetail
     const handleExerciseChange = (updatedExercise: Exercise) => {
         setEditedTraining(prev => ({
             ...prev,
-            exercices: prev.exercices.map(ex =>
+            exercises: prev.exercises.map(ex =>
                 ex.id === updatedExercise.id ? updatedExercise : ex
             )
         }));
@@ -60,12 +61,12 @@ function TrainingDetail({ training, onBack, onDelete, onUpdate }: TrainingDetail
     const removeExercise = (id: string) => {
         setEditedTraining(prev => ({
             ...prev,
-            exercices: prev.exercices.filter(ex => ex.id !== id)
+            exercises: prev.exercises.filter(ex => ex.id !== id)
         }));
     };
 
     const moveExerciseUp = (id: string) => {
-        const exercices = [...editedTraining.exercices];
+        const exercices = [...editedTraining.exercises];
         const index = exercices.findIndex(ex => ex.id === id);
         if (index > 0) {
             const temp = exercices[index];
@@ -73,13 +74,13 @@ function TrainingDetail({ training, onBack, onDelete, onUpdate }: TrainingDetail
             exercices[index - 1] = temp;
             setEditedTraining(prev => ({
                 ...prev,
-                exercices
+                exercises: exercices
             }));
         }
     };
 
     const moveExerciseDown = (id: string) => {
-        const exercices = [...editedTraining.exercices];
+        const exercices = [...editedTraining.exercises];
         const index = exercices.findIndex(ex => ex.id === id);
         if (index < exercices.length - 1) {
             const temp = exercices[index];
@@ -87,7 +88,7 @@ function TrainingDetail({ training, onBack, onDelete, onUpdate }: TrainingDetail
             exercices[index + 1] = temp;
             setEditedTraining(prev => ({
                 ...prev,
-                exercices
+                exercises: exercices
             }));
         }
     };
@@ -101,7 +102,7 @@ function TrainingDetail({ training, onBack, onDelete, onUpdate }: TrainingDetail
 
         setEditedTraining(prev => ({
             ...prev,
-            exercices: [...prev.exercices, newExercise]
+            exercises: [...prev.exercises, newExercise]
         }));
     };
 
@@ -112,12 +113,12 @@ function TrainingDetail({ training, onBack, onDelete, onUpdate }: TrainingDetail
             return;
         }
 
-        if (editedTraining.exercices.length === 0) {
+        if (editedTraining.exercises.length === 0) {
             alert('Adicione pelo menos um exercício ao treino.');
             return;
         }
 
-        if (editedTraining.exercices.some(ex => !ex.nome)) {
+        if (editedTraining.exercises.some(ex => !ex.nome)) {
             alert('Por favor, preencha corretamente o nome de todos os exercícios.');
             return;
         }
@@ -198,14 +199,14 @@ function TrainingDetail({ training, onBack, onDelete, onUpdate }: TrainingDetail
 
                 <h3 className="text-xl font-semibold mt-6 mb-4">Exercícios</h3>
                 <div className="space-y-4">
-                    {editedTraining.exercices.map((exercise, index) => (
+                    {editedTraining.exercises.map((exercise, index) => (
                         <ExerciseItem
                             key={exercise.id}
                             initialData={exercise}
                             onRemove={() => removeExercise(exercise.id)}
                             onExerciseChange={(updatedEx) => handleExerciseChange(updatedEx)}
                             onMoveUp={index > 0 ? () => moveExerciseUp(exercise.id) : undefined}
-                            onMoveDown={index < editedTraining.exercices.length - 1 ? () => moveExerciseDown(exercise.id) : undefined}
+                            onMoveDown={index < editedTraining.exercises.length - 1 ? () => moveExerciseDown(exercise.id) : undefined}
                         />
                     ))}
                 </div>
@@ -299,7 +300,7 @@ function TrainingDetail({ training, onBack, onDelete, onUpdate }: TrainingDetail
                     </tr>
                 </thead>
                 <tbody>
-                    {training.exercices.map((ex) => (
+                    {training.exercises.map((ex) => (
                         <>
                             <tr
                                 key={ex.id}
@@ -361,6 +362,14 @@ function TrainingDetail({ training, onBack, onDelete, onUpdate }: TrainingDetail
                 >
                     Voltar
                 </button>
+                {onRecordWorkout && (
+                    <button
+                        onClick={onRecordWorkout}
+                        className="py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600"
+                    >
+                        Registrar Treino
+                    </button>
+                )}
                 <button
                     onClick={() => setIsEditing(true)}
                     className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
