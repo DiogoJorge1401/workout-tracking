@@ -21,9 +21,9 @@ function TrainingForm({ onSubmit }: TraininFormProps) {
     const [exercises, setExercises] = useState<Exercise[]>([
         {
             id: crypto.randomUUID(), nome: '', restTimeIntervals: [
-                { name: 'Aquecimento', value: 90 },
-                { name: 'Preparação', value: 90 },
-                { name: 'Série válida', value: 90 }
+                { name: 'Aquecimento', value: 90, repetitions: 0, weight: 0 },
+                { name: 'Preparação', value: 90, repetitions: 0, weight: 0 },
+                { name: 'Série válida', value: 90, repetitions: 0, weight: 0 }
             ]
         }
     ]);
@@ -40,9 +40,9 @@ function TrainingForm({ onSubmit }: TraininFormProps) {
             ...exercises,
             {
                 id: crypto.randomUUID(), nome: '', restTimeIntervals: [
-                    { name: 'Aquecimento', value: 90 },
-                    { name: 'Preparação', value: 90 },
-                    { name: 'Série válida', value: 90 }
+                    { name: 'Aquecimento', value: 90, repetitions: 0, weight: 0 },
+                    { name: 'Preparação', value: 90, repetitions: 0, weight: 0 },
+                    { name: 'Série válida', value: 90, repetitions: 0, weight: 0 }
                 ]
             }
         ]);
@@ -56,6 +56,28 @@ function TrainingForm({ onSubmit }: TraininFormProps) {
         setExercises(exercises.map(ex =>
             ex.id === id ? { ...updatedExercise, id } : ex
         ));
+    };
+    
+    const moveExerciseUp = (id: string) => {
+        const index = exercises.findIndex(ex => ex.id === id);
+        if (index > 0) {
+            const updatedExercises = [...exercises];
+            const temp = updatedExercises[index];
+            updatedExercises[index] = updatedExercises[index - 1];
+            updatedExercises[index - 1] = temp;
+            setExercises(updatedExercises);
+        }
+    };
+    
+    const moveExerciseDown = (id: string) => {
+        const index = exercises.findIndex(ex => ex.id === id);
+        if (index < exercises.length - 1) {
+            const updatedExercises = [...exercises];
+            const temp = updatedExercises[index];
+            updatedExercises[index] = updatedExercises[index + 1];
+            updatedExercises[index + 1] = temp;
+            setExercises(updatedExercises);
+        }
     };
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
@@ -99,20 +121,20 @@ function TrainingForm({ onSubmit }: TraininFormProps) {
         setExercises([
             {
                 id: crypto.randomUUID(), nome: '', restTimeIntervals: [
-                    { name: 'Aquecimento', value: 90 },
-                    { name: 'Preparação', value: 90 },
-                    { name: 'Série válida', value: 90 }
+                    { name: 'Aquecimento', value: 90, repetitions: 0, weight: 0 },
+                    { name: 'Preparação', value: 90, repetitions: 0, weight: 0 },
+                    { name: 'Série válida', value: 90, repetitions: 0, weight: 0 },
                 ]
             }
         ]);
     };
 
     return (
-        <div className="card">
-            <h2>Criar Novo Treino</h2>
+        <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-2xl font-bold mb-4">Criar Novo Treino</h2>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="nome-treino">Nome do Treino</label>
+                <div className="mb-4">
+                    <label htmlFor="nome-treino" className="block font-semibold mb-2">Nome do Treino</label>
                     <input
                         type="text"
                         id="nome-treino"
@@ -120,62 +142,68 @@ function TrainingForm({ onSubmit }: TraininFormProps) {
                         onChange={(e) => setFormData(prev => ({ ...prev, nome: e.target.value }))}
                         required
                         placeholder="Ex: Treino de Superiores"
+                        className="w-full p-2 border border-gray-300 rounded"
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="tempo-aquecimento">Tempo de Aquecimento (segundos)</label>
+                <div className="mb-4">
+                    <label htmlFor="tempo-aquecimento" className="block font-semibold mb-2">Tempo de Aquecimento (segundos)</label>
                     <input
                         type="number"
                         id="tempo-aquecimento"
                         value={formData.warmUpDuration}
                         onChange={(e) => handleInputChange('warmUpDuration', e.target.value)}
                         min="0"
+                        className="w-full p-2 border border-gray-300 rounded"
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="tempo-alongamento">Tempo de Alongamento (segundos)</label>
+                <div className="mb-4">
+                    <label htmlFor="tempo-alongamento" className="block font-semibold mb-2">Tempo de Alongamento (segundos)</label>
                     <input
                         type="number"
                         id="tempo-alongamento"
                         value={formData.stretchDuration}
                         onChange={(e) => handleInputChange('stretchDuration', e.target.value)}
                         min="0"
+                        className="w-full p-2 border border-gray-300 rounded"
                     />
                 </div>
 
-
-                <div className="form-group">
-                    <label htmlFor="tempo-execucao">Tempo Padrão de Execução por Série (segundos)</label>
+                <div className="mb-4">
+                    <label htmlFor="tempo-execucao" className="block font-semibold mb-2">Tempo Padrão de Execução por Série (segundos)</label>
                     <input
                         type="number"
                         id="tempo-execucao"
                         value={formData.defaultExecutionTime}
                         onChange={(e) => handleInputChange('defaultExecutionTime', e.target.value)}
                         min="1"
+                        className="w-full p-2 border border-gray-300 rounded"
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="tempo-enrolacao">Tempo Padrão de "Enrolação" por Série (segundos)</label>
+                <div className="mb-4">
+                    <label htmlFor="tempo-enrolacao" className="block font-semibold mb-2">Tempo Padrão de "Enrolação" por Série (segundos)</label>
                     <input
                         type="number"
                         id="tempo-enrolacao"
                         value={formData.defaultEnrolacaoDuration}
                         onChange={(e) => handleInputChange('defaultEnrolacaoDuration', e.target.value)}
                         min="0"
+                        className="w-full p-2 border border-gray-300 rounded"
                     />
                 </div>
 
-                <h3>Exercícios</h3>
-                <div id="exercicios-lista">
-                    {exercises.map(exercise => (
+                <h3 className="text-xl font-semibold mt-6 mb-4">Exercícios</h3>
+                <div className="space-y-4">
+                    {exercises.map((exercise, index) => (
                         <ExerciseItem
                             key={exercise.id}
                             initialData={exercise}
                             onRemove={() => removeExercise(exercise.id)}
                             onExerciseChange={(updatedExercise) => updateExercise(exercise.id, updatedExercise)}
+                            onMoveUp={index > 0 ? () => moveExerciseUp(exercise.id) : undefined}
+                            onMoveDown={index < exercises.length - 1 ? () => moveExerciseDown(exercise.id) : undefined}
                         />
                     ))}
                 </div>
@@ -183,13 +211,18 @@ function TrainingForm({ onSubmit }: TraininFormProps) {
                 <button
                     type="button"
                     onClick={addExercise}
-                    className="btn btn-secondary"
+                    className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-600 mt-4"
                 >
                     Adicionar Exercício
                 </button>
 
-                <div className="actions">
-                    <button type="submit" className="btn btn-success">Salvar Treino</button>
+                <div className="flex justify-end mt-6">
+                    <button
+                        type="submit"
+                        className="py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600"
+                    >
+                        Salvar Treino
+                    </button>
                 </div>
             </form>
         </div>
