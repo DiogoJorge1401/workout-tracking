@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ExerciseItem from '../ExerciseItem';
+import ExerciseItem from '../../components/ExerciseItem';
 import { TEMPO } from '../../constants/time';
 import { Exercise, Workout } from '../../interfaces';
 

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import Notification from './components/Notification';
-import Settings from './components/Settings';
+import Settings from './pages/Settings';
 import TabNav from './components/TabNav';
 import TrainingDetail from './components/TrainingDetail';
-import TrainingForm from './components/TrainingForm';
-import TrainingsList from './components/TrainigList';
+import TrainingForm from './pages/TrainingForm';
+import TrainingsList from './pages/TrainigList';
 import useTrainings from './hooks/useTrainings';
 
 export type WorkoutNavigation = 'treinos' | 'novo-treino' | 'ajustes';
