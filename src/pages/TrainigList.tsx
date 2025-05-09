@@ -1,5 +1,5 @@
-import { Workout } from '../../interfaces';
-import { calcularTempoTreino } from '../../utils/time-utils';
+import { Workout } from '../interfaces';
+import { calcularTempoTreino } from '../utils/time-utils';
 
 interface TrainingsListProps {
   trainings: Array<Workout>;
@@ -27,7 +27,7 @@ function TrainingsList({ trainings, onSelect }: TrainingsListProps) {
             <div className="bg-white rounded-lg shadow border border-gray-100 p-4 hover:shadow-md transition-shadow" key={index}>
               <h3 className="text-xl font-semibold mb-2">{treino.nome}</h3>
               <p className="text-gray-700 mb-1"><span className="font-medium">Tempo total:</span> {detalhes.formatado}</p>
-              <p className="text-gray-700 mb-3"><span className="font-medium">Exercícios:</span> {treino.exercices.length}</p>
+              <p className="text-gray-700 mb-3"><span className="font-medium">Exercícios:</span> {treino.exercises.length}</p>
               <div className="flex justify-end">
                 <button
                   className="py-1.5 px-3 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition-colors"

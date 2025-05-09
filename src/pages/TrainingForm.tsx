@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import ExerciseItem from '../../components/ExerciseItem';
-import { TEMPO } from '../../constants/time';
-import { Exercise, Workout } from '../../interfaces';
+import ExerciseItem from '../components/ExerciseItem';
+import { TEMPO } from '../constants/time';
+import { Exercise, Workout } from '../interfaces';
 
 interface TraininFormProps {
     onSubmit: (training: Workout) => void;
@@ -14,7 +14,7 @@ function TrainingForm({ onSubmit }: TraininFormProps) {
         stretchDuration: TEMPO.MIN_5,
         defaultExecutionTime: TEMPO.SEG_45,
         defaultEnrolacaoDuration: TEMPO.SEG_15,
-        exercices: [],
+        exercises: [],
         id: crypto.randomUUID(),
     });
 
@@ -114,7 +114,7 @@ function TrainingForm({ onSubmit }: TraininFormProps) {
             stretchDuration: TEMPO.MIN_5,
             defaultExecutionTime: TEMPO.SEG_45,
             defaultEnrolacaoDuration: TEMPO.SEG_15,
-            exercices: [],
+            exercises: [],
             id: crypto.randomUUID(),
         });
 
