@@ -13,6 +13,7 @@ function TabNav({ activeTab, setActiveTab, onTabChange }: TabNavProps) {
   }[] = [
       { id: 'treinos', label: 'Meus Treinos' },
       { id: 'novo-treino', label: 'Novo Treino' },
+      { id: 'historico', label: 'Histórico' },
       { id: 'ajustes', label: 'Ajustes' }
     ];
 
