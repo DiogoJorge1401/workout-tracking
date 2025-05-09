@@ -29,7 +29,11 @@ function App() {
     <>
       <Header />
       <div className="container">
-        <TabNav activeTab={activeTab} setActiveTab={setActiveTab} />
+        <TabNav 
+          activeTab={activeTab} 
+          setActiveTab={setActiveTab} 
+          onTabChange={() => setSelectedTraining(null)} 
+        />
 
         {notification.show && <Notification message={notification.message} />}
 
