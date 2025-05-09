@@ -64,7 +64,7 @@ export const calcularTempoTreino = (treino: Workout) => {
     }
 
     // Calcular tempo para cada exercício
-    treino.exercices.forEach((exercicio) => {
+    treino.exercises.forEach((exercicio) => {
         const tempos = calcularTempoExercicio(exercicio, treino);
         detalhes.tempoRealExercicios += tempos.total;
         detalhes.tempoTotal += tempos.total;
