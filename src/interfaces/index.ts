@@ -4,6 +4,8 @@ export interface Exercise {
     restTimeIntervals: {
         name: string;
         value: number;
+        repetitions: number;
+        weight: number;
     }[]
     exerciseDurationInSet?: number;
     enrolacaoDurationInSet?: number;
