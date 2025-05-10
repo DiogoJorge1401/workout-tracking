@@ -15,27 +15,39 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Aquecimento",
-                        value: TEMPO.MIN_1_30
+                        value: TEMPO.MIN_1_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Aquecimento",
-                        value: TEMPO.MIN_2
+                        value: TEMPO.MIN_2,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     }
                 ]
             },
@@ -45,15 +57,21 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     }
                 ]
             },
@@ -63,27 +81,39 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Aquecimento",
-                        value: TEMPO.MIN_1_30
+                        value: TEMPO.MIN_1_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Aquecimento",
-                        value: TEMPO.MIN_1_30
+                        value: TEMPO.MIN_1_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_1_30
+                        value: TEMPO.MIN_1_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_1_30
+                        value: TEMPO.MIN_1_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     }
 
                 ]
@@ -94,19 +124,27 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_1_30
+                        value: TEMPO.MIN_1_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_1_30
+                        value: TEMPO.MIN_1_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     }
                 ]
             },
@@ -116,23 +154,33 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     }
                 ]
             },
@@ -142,19 +190,27 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2
+                        value: TEMPO.MIN_2,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     }
                 ]
             },
@@ -164,15 +220,21 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2
+                        value: TEMPO.MIN_2,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     }
                 ]
             }
@@ -192,27 +254,39 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Aquecimento",
-                        value: TEMPO.MIN_1_30
+                        value: TEMPO.MIN_1_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Aquecimento",
-                        value: TEMPO.MIN_2
+                        value: TEMPO.MIN_2,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     }
                 ]
             },
@@ -222,19 +296,27 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     }
                 ]
             },
@@ -244,23 +326,33 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Aquecimento",
-                        value: TEMPO.MIN_2
+                        value: TEMPO.MIN_2,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     }
                 ]
             },
@@ -270,19 +362,27 @@ export const workout: Workout[] = [
                 restTimeIntervals: [
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Preparação",
-                        value: TEMPO.MIN_3
+                        value: TEMPO.MIN_3,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     },
                     {
                         name: "Série válida",
-                        value: TEMPO.MIN_2_30
+                        value: TEMPO.MIN_2_30,
+                        repetitions: 0,
+                        weight: 0
                     }
                 ]
             }
