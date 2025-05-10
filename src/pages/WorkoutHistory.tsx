@@ -88,8 +88,6 @@ export default function WorkoutHistory() {
 
                     <div className="space-y-4">
                         {groupedByMonth[month].map(record => {
-                            const date = new Date(record.date);
-
                             return (
                                 <div
                                     key={record.id}
