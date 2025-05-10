@@ -2,14 +2,16 @@ import { useRef } from 'react';
 
 interface SettingsProps {
     onClearData: () => void;
-    onImportData: (data: any) => void;
-    onExportData: () => void;
+    onImportWorkoutTemplateData: (data: any) => void;
+    onExportWorkoutTemplateData: () => void;
+    onImportWorkoutRecordsData: (data: any) => void
+    onExportWorkoutRecordsData: () => void
 }
 
-function Settings({ onClearData, onImportData, onExportData }: SettingsProps) {
+function Settings({ onClearData, onImportWorkoutTemplateData, onExportWorkoutTemplateData, onExportWorkoutRecordsData, onImportWorkoutRecordsData }: SettingsProps) {
     const fileInputRef = useRef(null);
 
-    const handleImportChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleTemplateImportChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files![0];
         if (!file) return;
 
@@ -17,7 +19,26 @@ function Settings({ onClearData, onImportData, onExportData }: SettingsProps) {
         reader.onload = (event) => {
             try {
                 const data = JSON.parse(event.target?.result as string);
-                onImportData(data);
+                onImportWorkoutTemplateData(data);
+            } catch (error) {
+                alert('Arquivo inválido. Por favor, selecione um arquivo JSON válido.');
+            }
+        };
+
+        reader.readAsText(file);
+
+        e.target.value = '';
+    };
+
+    const handleRecordsImportChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files![0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const data = JSON.parse(event.target?.result as string);
+                onImportWorkoutRecordsData(data);
             } catch (error) {
                 alert('Arquivo inválido. Por favor, selecione um arquivo JSON válido.');
             }
@@ -51,9 +72,9 @@ function Settings({ onClearData, onImportData, onExportData }: SettingsProps) {
             </div>
 
             <div className="mb-6">
-                <label className="block font-semibold mb-2">Exportar Dados</label>
+                <label className="block font-semibold mb-2">Exportar Template dos Treinos</label>
                 <button
-                    onClick={onExportData}
+                    onClick={onExportWorkoutTemplateData}
                     className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
                 >
                     Exportar JSON
@@ -61,11 +82,37 @@ function Settings({ onClearData, onImportData, onExportData }: SettingsProps) {
             </div>
 
             <div className="mb-6">
-                <label className="block font-semibold mb-2">Importar Dados</label>
+                <label className="block font-semibold mb-2">Importar Template dos Treinos</label>
                 <input
                     type="file"
                     ref={fileInputRef}
-                    onChange={handleImportChange}
+                    onChange={handleTemplateImportChange}
+                    accept=".json"
+                    className="block w-full text-sm text-gray-500
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-blue-50 file:text-blue-700
+                    hover:file:bg-blue-100"
+                />
+            </div>
+
+            <div className="mb-6">
+                <label className="block font-semibold mb-2">Exportar Registro dos Treinos</label>
+                <button
+                    onClick={onExportWorkoutRecordsData}
+                    className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                >
+                    Exportar JSON
+                </button>
+            </div>
+
+            <div className="mb-6">
+                <label className="block font-semibold mb-2">Importar Registro dos Treinos</label>
+                <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleRecordsImportChange}
                     accept=".json"
                     className="block w-full text-sm text-gray-500
                     file:mr-4 file:py-2 file:px-4
