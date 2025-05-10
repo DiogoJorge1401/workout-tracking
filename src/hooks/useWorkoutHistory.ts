@@ -43,8 +43,8 @@ export default function useWorkoutHistory() {
     };
 
     const updateWorkoutRecord = (updatedRecord: WorkoutRecord) => {
-        setHistory((prevHistory) => 
-            prevHistory.map((record) => 
+        setHistory((prevHistory) =>
+            prevHistory.map((record) =>
                 record.id === updatedRecord.id ? updatedRecord : record
             )
         );
@@ -63,19 +63,24 @@ export default function useWorkoutHistory() {
     const getRecentSetDataForExercise = (exerciseId: string) => {
         // Encontra os registros mais recentes para um exercício específico
         const exerciseRecords = history
-            .flatMap(workoutRecord => 
+            .flatMap(workoutRecord =>
                 workoutRecord.exercises.filter(exercise => exercise.exerciseId === exerciseId)
             )
             .sort((a, b) => {
-                const dateA = history.find(record => 
+                const dateA = history.find(record =>
                     record.exercises.some(ex => ex.id === a.id))?.date || '';
-                const dateB = history.find(record => 
+                const dateB = history.find(record =>
                     record.exercises.some(ex => ex.id === b.id))?.date || '';
                 return new Date(dateB).getTime() - new Date(dateA).getTime();
             });
-        
+
         return exerciseRecords.length > 0 ? exerciseRecords[0] : null;
     };
+
+    const importRecords = (importedRecords: WorkoutRecord[]) => {
+        setHistory(importedRecords);
+        showNotification('Dados importados com sucesso!');
+    }
 
     return {
         history,
@@ -85,6 +90,7 @@ export default function useWorkoutHistory() {
         updateWorkoutRecord,
         getRecordsForWorkout,
         getRecentSetDataForExercise,
+        importRecords,
         showNotification
     };
 }
